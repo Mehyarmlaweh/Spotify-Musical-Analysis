@@ -55,4 +55,7 @@ st.markdown("""
     """)
 
 # Engaging visual (example: image or icon)
-st.image("../assets/Spotify_icon.png", width=40)
+st.image(r"C:\Users\14384\Desktop\M2 BDIA\Data Viz\TPS\TP2\Spotify-Musical-Analysis\assets\Spotify_icon.png", width=40)
+
+
+    
