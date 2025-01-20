@@ -1,7 +1,8 @@
 import streamlit as st
 import plotly.express as px
-from data_loading import load_data
-from claude_llm import call_claude_llm
+from src.musical_analysis.claude_llm import call_claude_llm
+from src.musical_analysis.data_loading import load_data
+
 
 # Spotify Theme Colors
 SPOTIFY_GREEN = "#1DB954"
