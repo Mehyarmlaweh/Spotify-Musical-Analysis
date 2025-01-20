@@ -45,9 +45,9 @@ html_static_path = ['_static']
 
 # Customize the theme
 html_theme_options = {
-    'navigation_depth': 4,  # Depth of the table of contents in the sidebar
-    'collapse_navigation': False,  # Do not collapse the sidebar navigation
-    'titles_only': False,  # Show all headings in the sidebar, not just the top-level ones
+    'navigation_depth': 4,  
+    'collapse_navigation': False,  
+    'titles_only': False, 
 }
 
 # Add a custom logo

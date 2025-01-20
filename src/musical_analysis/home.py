@@ -5,6 +5,7 @@ SPOTIFY_GREEN = "#1DB954"
 SPOTIFY_BLACK = "#191414"
 SPOTIFY_WHITE = "#FFFFFF"
 
+
 # Apply custom CSS for Spotify theme
 def apply_spotify_theme():
     st.markdown(
@@ -51,20 +52,31 @@ def apply_spotify_theme():
         unsafe_allow_html=True,
     )
 
+
 def home():
     apply_spotify_theme()  # Apply Spotify theme
 
     st.title("🎵 Welcome to the Music Analysis App")
-    st.markdown('<p class="big-font">🎵 Discover Musical Trends That Maximize Sales 🎵</p>', unsafe_allow_html=True)
+    st.markdown(
+        '<p class="big-font">🎵 Discover Musical Trends That Maximize Sales 🎵</p>',
+        unsafe_allow_html=True,
+    )
 
     # Introduction
-    st.markdown("""
+    st.markdown(
+        """
         <div class="intro-text">
         Welcome to our music analysis application, designed to help producers and professionals in the music industry make informed decisions. With precise data and interactive visualizations, you can identify the most popular and profitable music styles tailored to your target audience.
         </div>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
-    if st.button("👉 Access the Analysis Dashboard", key="dashboard_button", help="Click to explore the data"):
+    if st.button(
+        "👉 Access the Analysis Dashboard",
+        key="dashboard_button",
+        help="Click to explore the data",
+    ):
         st.session_state.page = "dashboard"
         st.rerun()
 
@@ -79,12 +91,18 @@ def home():
 
     # Testimonial
     st.markdown("### Testimonial")
-    st.markdown("""
+    st.markdown(
+        """
         <div class="testimonial">
         *"This application has revolutionized how we make decisions. In just a few clicks, we identified the music style that generated the most sales this year!"*  
         – **Alex, Music Producer**
         </div>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
     # Engaging visual (example: image or icon)
-    st.image(r"C:\Users\14384\Desktop\M2 BDIA\Data Viz\TPS\TP2\Spotify-Musical-Analysis\assets\Spotify_icon.png", width=100)
+    st.image(
+        r"C:\Users\14384\Desktop\M2 BDIA\Data Viz\TPS\TP2\Spotify-Musical-Analysis\assets\Spotify_icon.png",
+        width=100,
+    )

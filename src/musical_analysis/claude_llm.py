@@ -9,13 +9,16 @@ INFERENCE_PROFILE_ID = os.getenv("INFERENCE_PROFILE_ID")
 ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
 
+
 def call_claude_llm(prompt):
     try:
         # Initialize AWS Bedrock client
-        bedrock = boto3.client(service_name="bedrock-runtime",
-                                aws_access_key_id=ACCESS_KEY_ID,
-                                aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
-                                region_name="eu-west-3")  
+        bedrock = boto3.client(
+            service_name="bedrock-runtime",
+            aws_access_key_id=ACCESS_KEY_ID,
+            aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+            region_name="eu-west-3",
+        )
 
         # Prepare the payload
         payload = {
@@ -23,20 +26,17 @@ def call_claude_llm(prompt):
                 {
                     "role": "user",
                     "content": [
-                        {
-                            "type": "text",
-                            "text": prompt
-                        },
-                    ]
+                        {"type": "text", "text": prompt},
+                    ],
                 }
             ],
             "max_tokens": 8000,
-            "anthropic_version": "bedrock-2023-05-31"
+            "anthropic_version": "bedrock-2023-05-31",
         }
 
         # Invoke Claude LLM
         response = bedrock.invoke_model(
-            modelId=INFERENCE_PROFILE_ID,  
+            modelId=INFERENCE_PROFILE_ID,
             contentType="application/json",
             body=json.dumps(payload),
         )
