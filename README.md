@@ -1,6 +1,4 @@
-# Spotify Musical Analysis
-
-![Spotify Logo](docs/source/_static/logo.png) <!-- Add your logo here if available -->
+# 🎵 Welcome to the Music Analysis App
 
 A Python application designed to help music producers and professionals analyze trends in Spotify music data. This app provides insights into popular genres, audio features, and strategies to maximize sales.
 
