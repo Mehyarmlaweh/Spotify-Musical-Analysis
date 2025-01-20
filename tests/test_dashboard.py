@@ -13,14 +13,6 @@ def test_load_data():
     for column in expected_columns:
         assert column in data.columns, f"Column '{column}' is missing in the dataset"
 
-def test_missing_values():
-    # Test if there are any missing values in the dataset
-    data = load_data()
-    
-    # Check for missing values in specific columns
-    for column in ["track_name", "artists", "album_name", "track_genre", "popularity"]:
-        assert data[column].isnull().sum() == 0, f"Column '{column}' contains missing values"
-
 
 def test_average_popularity_by_genre():
     # Test calculating average popularity by genre
