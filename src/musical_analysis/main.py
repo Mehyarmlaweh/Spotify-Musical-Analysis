@@ -1,6 +1,6 @@
 import streamlit as st
-from src.musical_analysis.dashboard import dashboard
-from src.musical_analysis.home import home
+from musical_analysis.dashboard import dashboard
+from musical_analysis.home import home
 
 
 def main():
