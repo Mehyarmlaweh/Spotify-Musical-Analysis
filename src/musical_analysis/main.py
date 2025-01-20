@@ -1,6 +1,7 @@
 import streamlit as st
-from home import home
-from dashboard import dashboard
+from src.musical_analysis.dashboard import dashboard
+from src.musical_analysis.home import home
+
 
 def main():
     # Initialize session state for page navigation

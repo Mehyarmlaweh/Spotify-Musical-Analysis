@@ -1,11 +1,21 @@
+import os
+from dotenv import load_dotenv
 import json
 import boto3
 import streamlit as st
 
-def call_claude_llm(image_base64, prompt):
+load_dotenv()
+INFERENCE_PROFILE_ID = os.getenv("INFERENCE_PROFILE_ID")
+ACCESS_KEY_ID = os.getenv("ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
+
+def call_claude_llm(prompt):
     try:
         # Initialize AWS Bedrock client
-        bedrock = boto3.client(service_name="bedrock-runtime", region_name="eu-west-3")  
+        bedrock = boto3.client(service_name="bedrock-runtime",
+                                aws_access_key_id=ACCESS_KEY_ID,
+                                aws_secret_access_key=AWS_SECRET_ACCESS_KEY,
+                                region_name="eu-west-3")  
 
         # Prepare the payload
         payload = {
@@ -17,14 +27,6 @@ def call_claude_llm(image_base64, prompt):
                             "type": "text",
                             "text": prompt
                         },
-                        {
-                            "type": "image",
-                            "source": {
-                                "type": "base64",
-                                "media_type": "image/png",
-                                "data": image_base64
-                            }
-                        }
                     ]
                 }
             ],
@@ -34,7 +36,7 @@ def call_claude_llm(image_base64, prompt):
 
         # Invoke Claude LLM
         response = bedrock.invoke_model(
-            modelId="anthropic.claude-3-sonnet-20240229-v1:0",  
+            modelId=INFERENCE_PROFILE_ID,  
             contentType="application/json",
             body=json.dumps(payload),
         )

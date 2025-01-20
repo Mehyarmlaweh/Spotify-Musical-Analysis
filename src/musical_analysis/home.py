@@ -1,29 +1,60 @@
 import streamlit as st
 
-def home():
-    st.title("🎵 Welcome to the Music Analysis App")
-    # CSS for improved display
-    st.markdown("""
+# Spotify Theme Colors
+SPOTIFY_GREEN = "#1DB954"
+SPOTIFY_BLACK = "#191414"
+SPOTIFY_WHITE = "#FFFFFF"
+
+# Apply custom CSS for Spotify theme
+def apply_spotify_theme():
+    st.markdown(
+        f"""
         <style>
-        .big-font {
+        .stApp {{
+            background-color: {SPOTIFY_BLACK};
+            color: {SPOTIFY_WHITE};
+        }}
+        h1, h2, h3, h4, h5, h6 {{
+            color: {SPOTIFY_GREEN};
+        }}
+        .stButton>button {{
+            background-color: {SPOTIFY_GREEN};
+            color: {SPOTIFY_WHITE};
+            border-radius: 20px;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }}
+        .stButton>button:hover {{
+            background-color: #1ED760;
+            color: {SPOTIFY_WHITE};
+        }}
+        .stMarkdown {{
+            color: {SPOTIFY_WHITE};
+        }}
+        .big-font {{
             font-size: 30px !important;
             font-weight: bold;
-        }
-        .intro-text {
+            color: {SPOTIFY_GREEN};
+        }}
+        .intro-text {{
             font-size: 18px;
-            color: #4A4A4A;
-        }
-        .button-style {
-            background-color: #FF4B4B;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 16px;
-        }
+            color: {SPOTIFY_WHITE};
+        }}
+        .testimonial {{
+            font-style: italic;
+            color: {SPOTIFY_WHITE};
+        }}
         </style>
-        """, unsafe_allow_html=True)
+        """,
+        unsafe_allow_html=True,
+    )
 
+def home():
+    apply_spotify_theme()  # Apply Spotify theme
+
+    st.title("🎵 Welcome to the Music Analysis App")
     st.markdown('<p class="big-font">🎵 Discover Musical Trends That Maximize Sales 🎵</p>', unsafe_allow_html=True)
 
     # Introduction
@@ -49,9 +80,11 @@ def home():
     # Testimonial
     st.markdown("### Testimonial")
     st.markdown("""
+        <div class="testimonial">
         *"This application has revolutionized how we make decisions. In just a few clicks, we identified the music style that generated the most sales this year!"*  
         – **Alex, Music Producer**
-        """)
+        </div>
+        """, unsafe_allow_html=True)
 
     # Engaging visual (example: image or icon)
-    st.image(r"C:\Users\14384\Desktop\M2 BDIA\Data Viz\TPS\TP2\Spotify-Musical-Analysis\assets\Spotify_icon.png", width=40)
+    st.image(r"C:\Users\14384\Desktop\M2 BDIA\Data Viz\TPS\TP2\Spotify-Musical-Analysis\assets\Spotify_icon.png", width=100)
