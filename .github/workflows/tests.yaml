@@ -3,7 +3,7 @@ name: unit-tests
 on:
   push:
     branches: [ main ]
-  pull_request: 
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12.4'  # Specify the Python version you want to use    
+        python-version: '3.12.4'  # Specify the Python version you want to use
 
     - name: Install Poetry
       uses: snok/install-poetry@v1
@@ -36,6 +36,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        poetry lock --no-update  # Ensure the lock file is up-to-date
         poetry install --no-root --with dev
 
     - name: Run tests
