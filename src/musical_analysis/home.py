@@ -1,4 +1,6 @@
 import streamlit as st
+from pathlib  import Path
+
 
 # Spotify Theme Colors
 SPOTIFY_GREEN = "#1DB954"
@@ -103,6 +105,9 @@ def home():
 
     # Engaging visual (example: image or icon)
     st.image(
-        r"Spotify_icon.png",
+
+        f"""{Path(__file__).parent} 
+        / Spotify_icon.png""",
+
         width=100,
     )
