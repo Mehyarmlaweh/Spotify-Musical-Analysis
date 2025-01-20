@@ -106,8 +106,7 @@ def home():
     # Engaging visual (example: image or icon)
     st.image(
 
-        f"""{Path(__file__).parent} 
-        / Spotify_icon.png""",
+        f"""{Path(__file__).parent}/Spotify_icon.png""",
 
-        width=100,
+        width=100   
     )
